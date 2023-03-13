@@ -15,6 +15,7 @@ const localidades = {
     "localidad 8": {"Continente": "Asia","Pais": "Japón","Capital": "Tokio"}
 }
 
+//Arreglo con direccion de banderas
 const banderas =    ['https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Angola.svg',
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/1200px-Flag_of_the_United_States.svg.png",
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Mexico.jpg/1200px-Flag_of_Mexico.jpg",
@@ -25,6 +26,7 @@ const banderas =    ['https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_o
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/1200px-Flag_of_Japan.svg.png"]
 
 
+//Nuevo arreglo con la imagen añadida a los objetos de "localidades"
 let arreglo = [];
 let i = 0;
 for (let clave in localidades){
@@ -33,21 +35,20 @@ for (let clave in localidades){
     i++
 }
 
+//Configuracion Express y hbs
 const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 app.set("view engine", "hbs")
-app.use(express.static("public"))
-hbs.registerPartials(join(__dirname,"views/partials"))
+app.use(express.static("public")) //Ruta de css
+hbs.registerPartials(join(__dirname,"views/partials")) //Ruta parciales
 
-
-
-
+//Servidor
 app.listen(3000, function(){
     console.log("Servidor en puerto 3000")
 })
 
-
+//ruta
 app.get("/", (req,res) =>{
     res.render("index",{arreglo})
 })
