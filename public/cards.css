@@ -7,9 +7,14 @@
 
 .card{
     height: 350px!important;
+    background-color: rgb(153, 153, 153);
 }
 
 .card-img-top{
     border: 1px black solid;
     height: 200px;
+}
+
+body{
+    background-color: rgb(41, 41, 41);
 }
